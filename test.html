@@ -1,0 +1,33 @@
+
+
+ <script src="jquery-2.1.0.js">
+    </script>
+     <div class="play">Play</div>
+ <div class="pause">Stop</div>
+<script>
+  $(document).ready(function() {
+        var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', 'C:\\Users\\Mike\\Documents\\Comp 523\\ferry.mp3');
+        audioElement.setAttribute('autoplay', 'autoplay');
+        //audioElement.load()
+        $.get();
+        audioElement.addEventListener("load", function() {
+        audioElement.play();
+        }, true);
+
+
+
+
+        $('.play').click(function() {
+        audioElement.play();
+        });
+
+
+        $('.pause').click(function() {
+        audioElement.pause();
+        });
+
+
+
+});
+  </script>

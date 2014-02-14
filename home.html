@@ -15,32 +15,14 @@
 
 <body>
     
-    <!--No jQuery yet-->
-    <script src="jquery-2.1.0.js"></script>
+    <script src="jquery-2.1.0.js">
+    </script>  
 
-    <!--Create rows containing columns, all within a container-->
+    <!-- Here we create 4 rows with 4 grids in each row, all surrounded by a "container" object. This allows us to style the grid appropriately in Bootstrap. notice how we first build a row followed by four column elements within each row: -->
     <div class="container">
-        <div class="row">
-    <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class="thumbnail">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-     <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class="thumbnail">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-    <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class="thumbnail">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-    <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class="thumbnail pull-left">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
+
+    <!-- Row 1: -->
+    <div class="row">
     <div class="col-lg-3 col-sm-4 col-xs-6">
         <a href="#" class="thumbnail">
              <img src="http://placehold.it/350x150" class="img-responsive">
@@ -61,6 +43,10 @@
              <img src="http://placehold.it/350x150" class="img-responsive">
         </a>
     </div>
+   </div>
+
+    <!-- Row 2: -->
+    <div class="row">
     <div class="col-lg-3 col-sm-4 col-xs-6">
         <a href="#" class="thumbnail">
              <img src="http://placehold.it/350x150" class="img-responsive">
@@ -77,16 +63,62 @@
         </a>
     </div>
     <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class="thumbnail">
+             <img src="http://placehold.it/350x150" class="img-responsive">
+        </a>
+    </div>
+   </div>
+
+    <!-- Row 3: --> 
+   <div class="row">
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class="thumbnail">
+             <img src="http://placehold.it/350x150" class="img-responsive">
+        </a>
+    </div>
+
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class="thumbnail">
+             <img src="http://placehold.it/350x150" class="img-responsive">
+        </a>
+    </div>
+
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class="thumbnail">
+             <img src="http://placehold.it/350x150" class="img-responsive">
+        </a>
+    </div>
+
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class ="thumbnail">
+            <img id="track1" src="pictures/ferry.jpg" class="play img-responsive">
+        </a>
+    </div>
+    </div> 
+</div> <!-- end container -->
+
+ <script>
+  $(document).ready(function() {
+
+        //Add audio tags for each mp3 here:
+        var audioElement = document.createElement('audio');
+
+
+        //Set file location for each mp3 tag here:
+        audioElement.setAttribute('src', 'sounds\\ferry.mp3');
+        audioElement.setAttribute('src', 'sounds\\ferry.ogg');
         
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-  </div>
-     </div>
+        //Play/pause loop for each picture will go here:
+        $('.play').click(function() {
+        if (audioElement.paused == true) {
+        audioElement.play();
+        } else {
+        audioElement.pause();
+        }
+});
 
-
-<script>
-     </script>      
+});
+  </script>
 
 </body>
 
