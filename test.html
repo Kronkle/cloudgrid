@@ -1,33 +1,130 @@
+<!doctype html>
+<html lang="en">
 
+<!-- Clone/Push 1: Mike Kronk -->
+<!-- Clone/Push 2: -->
+<!-- Clone/Push 3: -->
+<!-- Clone/Push 4: -->
 
- <script src="jquery-2.1.0.js">
-    </script>
-     <div class="play">Play</div>
- <div class="pause">Stop</div>
-<script>
+<head>
+    <meta charset="utf-8">
+    <title>Grid Game</title>
+
+    <!--Put your path to Bootstrap below-->
+    <link href="bootstrap-3.1.0-dist\dist\css\bootstrap.css" rel="stylesheet">
+
+    <!--Put your path to sitecss.css below-->
+    <link href="sitecss.css" rel="stylesheet">
+
+</head>
+
+<body>
+    
+    <script src="jquery-2.1.0.js">
+    </script>  
+
+    <!-- Here we create 4 rows with 4 grids in each row, all surrounded by a "container" object. This allows us to style the grid appropriately in Bootstrap. notice how we first build a row followed by four column elements within each row: -->
+    <div class="container">
+
+    <!-- Row 1: -->
+    <div class="row">
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class="thumbnail">
+             <img src="http://placehold.it/350x150" class="img-responsive">
+        </a>
+    </div>
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class="thumbnail">
+             <img src="http://placehold.it/350x150" class="img-responsive">
+        </a>
+    </div>
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class="thumbnail">
+             <img src="http://placehold.it/350x150" class="img-responsive">
+        </a>
+    </div>
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class="thumbnail">
+             <img src="http://placehold.it/350x150" class="img-responsive">
+        </a>
+    </div>
+   </div>
+
+    <!-- Row 2: -->
+    <div class="row">
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class="thumbnail">
+             <img src="http://placehold.it/350x150" class="img-responsive">
+        </a>
+    </div>
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class="thumbnail">
+             <img src="http://placehold.it/350x150" class="img-responsive">
+        </a>
+    </div>
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class="thumbnail">
+             <img src="http://placehold.it/350x150" class="img-responsive">
+        </a>
+    </div>
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class="thumbnail">
+             <img src="http://placehold.it/350x150" class="img-responsive">
+        </a>
+    </div>
+   </div>
+
+    <!-- Row 3: --> 
+   <div class="row">
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class="thumbnail">
+             <img src="http://placehold.it/350x150" class="img-responsive">
+        </a>
+    </div>
+
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class="thumbnail">
+             <img src="http://placehold.it/350x150" class="img-responsive">
+        </a>
+    </div>
+
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class="thumbnail">
+             <img src="http://placehold.it/350x150" class="img-responsive">
+        </a>
+    </div>
+
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+        <a href="#" class ="thumbnail">
+            <img id="track1" src="pictures/ferry.jpg" class="play img-responsive">
+        </a>
+    </div>
+    </div> 
+</div> <!-- end container -->
+
+ <script>
   $(document).ready(function() {
+
+        //Add audio tags for each mp3 here:
         var audioElement = document.createElement('audio');
-        audioElement.setAttribute('src', 'C:\\Users\\Mike\\Documents\\Comp 523\\ferry.mp3');
-        audioElement.setAttribute('autoplay', 'autoplay');
-        //audioElement.load()
-        $.get();
-        audioElement.addEventListener("load", function() {
-        audioElement.play();
-        }, true);
 
 
-
-
+        //Set file location for each mp3 tag here:
+        audioElement.setAttribute('src', 'sounds\\ferry.mp3');
+        audioElement.setAttribute('src', 'sounds\\ferry.ogg');
+        
+        //Play/pause loop for each picture will go here:
         $('.play').click(function() {
+        if (audioElement.paused == true) {
         audioElement.play();
-        });
-
-
-        $('.pause').click(function() {
+        } else {
         audioElement.pause();
-        });
-
-
+        }
+});
 
 });
   </script>
+
+</body>
+
+</html>
