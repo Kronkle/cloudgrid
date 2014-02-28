@@ -34,15 +34,18 @@
     <script type="text/javascript">
     $(document).ready(function() {
 
+        //Create an array to store all the images and SRC's. This is hard-coded for now so that one of you can have a chance to do a commit. Just declare and initialize things in a loop. 
+        var gridPictures = new Array("pictures/ferry.jpg", "pictures/lightning.jpg", "pictures/frog.jpg", "pictures/spaceship.jpg", "pictures/spaceship.jpg", "pictures/ferry.jpg", "pictures/ferry.jpg", "pictures/ferry.jpg", "pictures/ferry.jpg");
+
         for (var i = 0; i < 9; i++) {
             if (i == 0) {
-                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =play img-responsive src=pictures/ferry.jpg></a></div>").appendTo(".rowone");
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =play img-responsive src=" + gridPictures[i] + "></a></div>").appendTo(".rowone");
             } else if (i > 0 && i < 3) {
-                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src=http://placehold.it/350x250></a></div>").appendTo(".rowone");
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src=" + gridPictures[i] +"></a></div>").appendTo(".rowone");
             } else if (i < 6) {
-                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src=http://placehold.it/350x250></a></div>").appendTo(".rowtwo");
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src="+ gridPictures[i] + "></a></div>").appendTo(".rowtwo");
             } else if (i < 9) {
-                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src=http://placehold.it/350x250></a></div>").appendTo(".rowthree");
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src="+ gridPictures[i] +"></a></div>").appendTo(".rowthree");
             }
         }
         //Add audio tags for each mp3 here:
