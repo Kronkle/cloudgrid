@@ -39,9 +39,11 @@
 
         for (var i = 0; i < 9; i++) {
             if (i == 0) {
-                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =play img-responsive src=" + gridPictures[i] + "></a></div>").appendTo(".rowone");
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src=" + gridPictures[i] + "></a></div>").appendTo(".rowone");
             } else if (i > 0 && i < 3) {
                 $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src=" + gridPictures[i] +"></a></div>").appendTo(".rowone");
+            } else if(i < 4){
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =play img-responsive src="+ gridPictures[i] + "></a></div>").appendTo(".rowtwo");
             } else if (i < 6) {
                 $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src="+ gridPictures[i] + "></a></div>").appendTo(".rowtwo");
             } else if (i < 9) {
@@ -52,8 +54,8 @@
         var audioElement = document.createElement('audio');
 
         //Set file location for each mp3 tag here:
-        audioElement.setAttribute('src', 'sounds\\ferry.mp3');
-        audioElement.setAttribute('src', 'sounds\\ferry.ogg');
+        audioElement.setAttribute('src', 'sounds\\train.mp3');
+        audioElement.setAttribute('src', 'sounds\\train.ogg');
 
         //Play/pause loop for each picture will go here:
         $('.play').click(function() {
