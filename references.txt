@@ -1,8 +1,15 @@
 References:
+
 Images - 
-	Lightning: http://commons.wikimedia.org/wiki/File:Light_from_the_sky_to_the_earth....JPG
-	Frog:
-http://commons.wikimedia.org/wiki/File:Masked_tree_frog_head.JPG
-	Spaceship:
-http://upload.wikimedia.org/wikipedia/commons/8/88/Spaceship_Kawaii.gif
-Sounds - 
+	
+Frog: https://openclipart.org/image/800px/svg_to_png/76105/frog_pixabella_Green_Valentine_Frog.png
+Cow: https://openclipart.org/image/800px/svg_to_png/12456/bsantos_Cow.png
+UFO: https://openclipart.org/image/800px/svg_to_png/149239/cow_abduction.png
+Basketball: https://openclipart.org/image/800px/svg_to_png/153373/Basketball.png
+Wand: https://openclipart.org/image/300px/svg_to_png/83863/58480760.png
+Drums: https://openclipart.org/image/300px/svg_to_png/182946/Drums.png
+Spiral: https://openclipart.org/image/300px/svg_to_png/179846/Blue%20Spiral.png
+Beach: https://openclipart.org/image/300px/svg_to_png/155335/1313315951.png
+Train: https://openclipart.org/image/800px/svg_to_png/191529/1393859663.png
+
+Sounds:
