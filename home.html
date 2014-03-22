@@ -33,16 +33,16 @@
 
     <script type="text/javascript">
     $(document).ready(function() {
-        boolean created = false;
-
-        $("<form action=\"submit\">
+        //We can use this boolean later to hold off on rendering the grid until all pictures and sounds have been uploaded. 
+        
+      /*  $("<form action=\"submit\">
         <input type=\"file\" name=\"pic\" accept=\"image\/*\">
         <input type=\"submit\">
-        </form>");
+        </form>");*/
 
 
         //Once the required fields have been filled out, dynamically build the grid
-        if(created){
+        
         //Create an array to store all the images and SRC's. This is hard-coded for now so that one of you can have a chance to do a commit. Just declare and initialize things in a loop. 
         var gridPictures = new Array("pictures/basketball.jpg", "pictures/beach.jpg", "pictures/cow.jpg", "pictures/train.jpg", "pictures/ufo.jpg", "pictures/wand.jpg", "pictures/frog.jpg", "pictures/drums.jpg", "pictures/spiral.jpg");
 
@@ -76,7 +76,7 @@
         });
 
 
-    });}
+    });
     </script>
 
 </body>
