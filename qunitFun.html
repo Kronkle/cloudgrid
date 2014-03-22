@@ -1,0 +1,110 @@
+        <!doctype html>
+<html lang="en">
+
+<!-- Clone/Push 1: Mike Kronk -->
+<!-- Clone/Push 2: -->
+<!-- Clone/Push 3: -->
+<!-- Clone/Push 4: -->
+
+<head>
+    <meta charset="utf-8">
+    <title>Grid Game</title>
+
+    <!--Put your path to qunit.css below-->
+    <link rel="stylesheet" href="qunit-1.14.0.css">
+
+    <!--Put your path to Bootstrap below-->
+    <link href="bootstrap-3.1.0-dist\dist\css\bootstrap.css" rel="stylesheet">
+
+     <!--Put your path to sitecss.css below-->
+    <link href="sitecss.css" rel="stylesheet">
+
+    <script src="jquery-2.1.0.js"></script>
+
+    <script type="text/javascript" src="qunit-1.14.0.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+    module("Basic Unit Test");
+    test("Sample test", function()
+    {
+       expect(1);
+       equals(divide(4,2),
+        2,
+        'Expected 2 as the result, result was: ' + divide(4,2));
+    });
+  });
+	</script>
+
+</head>
+
+<body>
+
+    <h1 id="qunit-header">QUnit example</h1>
+    <h2 id="qunit-banner"></h2>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests">
+    </ol>
+
+    <!-- Here we create 4 rows with 4 grids in each row, all surrounded by a "container" object. This allows us to style the grid appropriately in Bootstrap.  Notice how we first build a row followed by four column elements within each row: -->
+    <!-- <div class="container">
+        <div class="rowone"></div>
+        <div class="rowtwo"></div>
+        <div class="rowthree"></div>
+    </div> -->
+
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+    	
+        //We can use this boolean later to hold off on rendering the grid until all pictures and sounds have been uploaded. 
+        
+      /*  $("<form action=\"submit\">
+        <input type=\"file\" name=\"pic\" accept=\"image\/*\">
+        <input type=\"submit\">
+        </form>");*/
+
+
+        //Once the required fields have been filled out, dynamically build the grid
+        
+        //Create an array to store all the images and SRC's. This is hard-coded for now so that one of you can have a chance to do a commit. Just declare and initialize things in a loop. 
+        /*var gridPictures = new Array("pictures/basketball.jpg", "pictures/beach.jpg", "pictures/cow.jpg", "pictures/train.jpg", "pictures/ufo.jpg", "pictures/wand.jpg", "pictures/frog.jpg", "pictures/drums.jpg", "pictures/spiral.jpg");
+
+        for (var i = 0; i < 9; i++) {
+            if (i == 0) {
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src=" + gridPictures[i] + "></a></div>").appendTo(".rowone");
+            } else if (i > 0 && i < 3) {
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src=" + gridPictures[i] +"></a></div>").appendTo(".rowone");
+            } else if(i < 4){
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =play img-responsive src="+ gridPictures[i] + "></a></div>").appendTo(".rowtwo");
+            } else if (i < 6) {
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src="+ gridPictures[i] + "></a></div>").appendTo(".rowtwo");
+            } else if (i < 9) {
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src="+ gridPictures[i] +"></a></div>").appendTo(".rowthree");
+            }
+        }
+        //Add audio tags for each mp3 here:
+        var audioElement = document.createElement('audio');
+
+        //Set file location for each mp3 tag here:
+        audioElement.setAttribute('src', 'sounds\\train.mp3');
+        audioElement.setAttribute('src', 'sounds\\train.ogg');
+
+        //Play/pause loop for each picture will go here:
+        $('.play').click(function() {
+            if (audioElement.paused == true) {
+                audioElement.play();
+            } else {
+                audioElement.pause();
+            }
+        });*/
+
+
+    });
+    </script>
+
+</body>
+
+</html>
+
