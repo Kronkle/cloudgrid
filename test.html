@@ -108,11 +108,29 @@
 
     test("Grid Full Test", function(){
         expect(1);
-        equal(gridPictures.length, 9, 'Expected grid to have 9 pictures, it has ' + gridPictures.length + ' pictures')
+        equal(gridPictures.length, 9, 'Expected grid to have 9 pictures, it has ' + gridPictures.length + ' pictures');
 
     }); //end Grid Full Test
 
-   
+   test("Grid File Extension Test", function(){
+    
+    var extensions = new Array();
+    for(var h = 0; h < 9; h++){
+    extensions[h] = gridPictures[h].substr((gridPictures[h].lastIndexOf('.') + 1));
+    }
+
+    expect(9);
+    /*for(var j = 0; j < 9; j++){
+         equal(extensions[j], 'jpg', 'Expected grid element to have .jpg, it has " + extension');
+    }*/
+    var imgCheck = false;
+    for(var j = 0; j < 9; j++){
+        if(extensions[j] == 'jpg' || extensions[j] == 'png' || extensions[j] == 'gif' || extensions[j] == 'JPG' || extensions[j] == 'PNG' || extensions[j] == 'GIF' ) imgCheck = true;
+        equal(imgCheck, true, 'Expected grid element to have a valid image extension, it is ' + extensions[j]);       
+        imgCheck = false;
+    }
+//Common image file formats: JPG, PNG, GIF
+   });
 
 
 }); //end Document Ready function
