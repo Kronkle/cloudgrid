@@ -1,4 +1,4 @@
-<!doctype html>
+        <!doctype html>
 <html lang="en">
 
 <!-- Clone/Push 1: Mike Kronk -->
@@ -10,121 +10,117 @@
     <meta charset="utf-8">
     <title>Grid Game</title>
 
+    <!--Put your path to qunit.css below-->
+    <link rel="stylesheet" href="qunit-1.14.0.css">
+
     <!--Put your path to Bootstrap below-->
     <link href="bootstrap-3.1.0-dist\dist\css\bootstrap.css" rel="stylesheet">
 
-    <!--Put your path to sitecss.css below-->
+     <!--Put your path to sitecss.css below-->
     <link href="sitecss.css" rel="stylesheet">
+
+    <script src="jquery-2.1.0.js"></script>
+
+    <script type="text/javascript" src="qunit-1.14.0.js"></script>
+
+   
 
 </head>
 
 <body>
-    
-    <script src="jquery-2.1.0.js">
-    </script>  
 
-    <!-- Here we create 4 rows with 4 grids in each row, all surrounded by a "container" object. This allows us to style the grid appropriately in Bootstrap. notice how we first build a row followed by four column elements within each row: -->
-    <div class="container">
+    <h1 id="qunit-header">QUnit example</h1>
+    <h2 id="qunit-banner"></h2>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests">
+    </ol>
 
-    <!-- Row 1: -->
-    <div class="row">
-    <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class="thumbnail">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-    <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class="thumbnail">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-    <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class="thumbnail">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-    <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class="thumbnail">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-   </div>
-
-    <!-- Row 2: -->
-    <div class="row">
-    <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class="thumbnail">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-    <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class="thumbnail">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-    <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class="thumbnail">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-    <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class="thumbnail">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-   </div>
-
-    <!-- Row 3: --> 
-   <div class="row">
-    <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class="thumbnail">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-
-    <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class="thumbnail">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-
-    <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class="thumbnail">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-
-    <div class="col-lg-3 col-sm-4 col-xs-6">
-        <a href="#" class ="thumbnail">
-            <img id="track1" src="pictures/ferry.jpg" class="play img-responsive">
-        </a>
-    </div>
+    <!-- Here we create 4 rows with 4 grids in each row, all surrounded by a "container" object. This allows us to style the grid appropriately in Bootstrap.  Notice how we first build a row followed by four column elements within each row: -->
+     <div class="container">
+        <div class="rowone"></div>
+        <div class="rowtwo"></div>
+        <div class="rowthree"></div>
     </div> 
-</div> <!-- end container -->
 
- <script>
-  $(document).ready(function() {
 
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        //We can use this boolean later to hold off on rendering the grid until all pictures and sounds have been uploaded. 
+        
+        $("<form action=\"submit\"><input type=\"file\" name=\"pic\"accept=\"image\/*\"><input type=\"submit\"></form>");
+        
+
+
+        //Once the required fields have been filled out, dynamically build the grid
+        
+        //Create an array to store all the images and SRC's. This is hard-coded for now so that one of you can have a chance to do a commit. Just declare and initialize things in a loop. 
+        var gridPictures = new Array("pictures/basketball.jpg", "pictures/beach.jpg", "pictures/cow.jpg", "pictures/train.jpg", "pictures/ufo.jpg", "pictures/wand.jpg", "pictures/frog.jpg", "pictures/drums.jpg", "pictures/spiral.jpg");
+
+        for (var i = 0; i < 9; i++) {
+            if (i == 0) {
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src=" + gridPictures[i] + "></a></div>").appendTo(".rowone");
+            } else if (i > 0 && i < 3) {
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src=" + gridPictures[i] +"></a></div>").appendTo(".rowone");
+            } else if(i < 4){
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =play img-responsive src="+ gridPictures[i] + "></a></div>").appendTo(".rowtwo");
+            } else if (i < 6) {
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src="+ gridPictures[i] + "></a></div>").appendTo(".rowtwo");
+            } else if (i < 9) {
+                $("<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =img-responsive src="+ gridPictures[i] +"></a></div>").appendTo(".rowthree");
+            }
+        }
         //Add audio tags for each mp3 here:
         var audioElement = document.createElement('audio');
 
-
         //Set file location for each mp3 tag here:
-        audioElement.setAttribute('src', 'sounds\\ferry.mp3');
-        audioElement.setAttribute('src', 'sounds\\ferry.ogg');
-        
+        audioElement.setAttribute('src', 'sounds\\train.mp3');
+        audioElement.setAttribute('src', 'sounds\\train.ogg');
+
         //Play/pause loop for each picture will go here:
         $('.play').click(function() {
-        if (audioElement.paused == true) {
-        audioElement.play();
-        } else {
-        audioElement.pause();
-        }
-});
+            if (audioElement.paused == true) {
+                audioElement.play();
+            } else {
+                audioElement.pause();
+            }
+        });
 
-});
-  </script>
+    QUnit.log = function(details)
+    {
+        console.log("Log: ", details.result, details.message);
+    }
+
+    //Using module allows us to separate things visually on the test results page
+    module("CloudGrid Unit Test Module");
+
+    //Declare the single test that will be run for the above module 
+    test("Grid Creation Loop Test", function()
+    {
+        //We expect 1 assertion for this test
+       expect(1);
+        /*Call the "equals" method to make actual assertion, 
+        with the first two parameters being the two things 
+        compared and last parameter being what prints when the result of the assertion is computed
+        */
+       equal(i, 9,'Expected i to be 9, it is ' + i);
+    }); //end Grid Creation Test
+
+    test("Grid Full Test", function(){
+        expect(1);
+        equal(gridPictures.length, 9, 'Expected grid to have 9 pictures, it has ' + gridPictures.length + ' pictures')
+
+    }); //end Grid Full Test
+
+   
+
+
+}); //end Document Ready function
+
+
+    </script>
 
 </body>
 
 </html>
+
