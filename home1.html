@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Clone/Push 1: Mike Kronk -->
+<!-- Clone/Push 2: -->
+<!-- Clone/Push 3: -->
+<!-- Clone/Push 4: -->
+
+<head>
+<meta charset="utf-8">
+<title>Grid Game</title>
+
+<!--Put your path to Bootstrap below-->
+<link href="bootstrap-3.1.0-dist\dist\css\bootstrap.css"
+	rel="stylesheet">
+
+<!--Put your path to sitecss.css below-->
+<link href="sitecss.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<script src="jquery-2.1.0.js" type="text/javascript">
+		
+	</script>
+
+	<!-- Here we create 4 rows with 4 grids in each row, all surrounded by a "container" object. This allows us to style the grid appropriately in Bootstrap.  Notice how we first build a row followed by four column elements within each row: -->
+	<div class="container">
+		<div class="grid"></div>
+	</div>
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//We can use this boolean later to hold off on rendering the grid until all pictures and sounds have been uploaded. 
+
+			/*  $("<form action=\"submit\">
+			  <input type=\"file\" name=\"pic\" accept=\"image\/*\">
+			  <input type=\"submit\">
+			  </form>");*/
+
+			//Once the required fields have been filled out, dynamically build the grid
+			//Create an array to store all the images and SRC's. This is hard-coded for now so that one of you can have a chance to do a commit. Just declare and initialize things in a loop. 
+			var layout = 0;
+			rebuildGrid(layout);
+		});
+
+							
+	</script>
+	<script type="text/javascript">
+	var audioElement = [];
+	function rebuildGrid(layout) {
+		$(".grid").empty();
+		switch (layout) {
+		case 2:
+			var gridPictures = new Array(
+					"pictures/basketball.jpg",
+					"pictures/basketball.jpg",
+					"pictures/basketball.jpg",
+					"pictures/basketball.jpg",
+					"pictures/basketball.jpg",
+					"pictures/basketball.jpg",
+					"pictures/basketball.jpg",
+					"pictures/basketball.jpg",
+					"pictures/spiral.jpg");
+			var gridSoundsMP3 = new Array(' ', ' ',
+					' ', ' ', ' ', ' ', ' ', ' ', ' ');
+			var gridSoundsOGG = new Array(' ', ' ',
+					' ', ' ', ' ', ' ', ' ', ' ', ' ');
+			var gridLayouts = new Array(0, 0, 0, 0, 0, 0, 0, 0, 1);
+			break;
+		case 1:
+		default:
+			var gridPictures = new Array(
+					"pictures/basketball.jpg",
+					"pictures/beach.jpg",
+					"pictures/cow.jpg",
+					"pictures/train.jpg",
+					"pictures/ufo.jpg",
+					"pictures/wand.jpg",
+					"pictures/frog.jpg",
+					"pictures/drums.jpg",
+					"pictures/spiral.jpg");
+			var gridSoundsMP3 = new Array(' ', ' ',
+					' ', 'sounds/train.mp3', ' ', ' ',
+					' ', ' ', ' ');
+			var gridSoundsOGG = new Array(' ', ' ',
+					' ', 'sounds/train.ogg', ' ', ' ',
+					' ', ' ', ' ');
+			var gridLayouts = new Array(0, 0, 0, 0, 0, 0, 0, 0, 2); // If set to a number other than 0 will link to the grid number related
+
+		}
+		audioElement = new Array(document
+				.createElement('audio'), document
+				.createElement('audio'), document
+				.createElement('audio'), document
+				.createElement('audio'), document
+				.createElement('audio'), document
+				.createElement('audio'), document
+				.createElement('audio'), document
+				.createElement('audio'), document
+				.createElement('audio'));
+		for (var i = 0; i < 9; i++) {
+			$(
+					"<div class=col-lg-4 col-md-4><a href=# class=thumbnail><img class =play" + i + " img-responsive src=" + gridPictures[i] + "></a></div>")
+					.appendTo(".grid");
+			if (gridSoundsMP3[i] != ' ') {
+				//audioElement[i].setAttribute('src', gridSoundsMP3[i]);
+			}
+			if (gridSoundsOGG[i] != ' ') {
+				audioElement[i].setAttribute('src', gridSoundsOGG[i]);
+			}
+		}
+	//Play/pause loop for each picture will go here:
+	$('.play0').click(function() {
+		if (audioElement[0].paused == true) {
+			audioElement[0].play();
+		} else {
+			audioElement[0].pause();
+		}
+		if (gridLayouts[0] != 0){
+			rebuildGrid(gridLayouts[0]);
+		}
+	});
+	$('.play1').click(function() {
+		if (audioElement[1].paused == true) {
+			audioElement[1].play();
+		} else {
+			audioElement[1].pause();
+		}
+		if (gridLayouts[1] != 0){
+			rebuildGrid(gridLayouts[1]);
+		}
+	});
+	$('.play2').click(function() {
+		if (audioElement[2].paused == true) {
+			audioElement[2].play();
+		} else {
+			audioElement[2].pause();
+		}
+		if (gridLayouts[2] != 0){
+			rebuildGrid(gridLayouts[2]);
+		}
+	});
+	$('.play3').click(function() {
+		if (audioElement[3].paused == true) {
+			audioElement[3].play();
+		} else {
+			audioElement[3].pause();
+		}
+		if (gridLayouts[3] != 0){
+			rebuildGrid(gridLayouts[3]);
+		}
+	});
+	
+	$('.play4').click(function() {
+		
+		if (audioElement[4].paused == true) {
+			audioElement[4].play();
+		} else {
+			audioElement[4].pause();
+		}
+		if (gridLayouts[4] != 0){
+			rebuildGrid(gridLayouts[4]);
+		}
+	});
+	$('.play5').click(function() {
+		
+		if (audioElement[5].paused == true) {
+			audioElement[5].play();
+		} else {
+			audioElement[5].pause();
+		}
+		if (gridLayouts[5] != 0){
+			rebuildGrid(gridLayouts[5]);
+		}
+	});
+	$('.play6').click(function() {
+		
+		if (audioElement[6].paused == true) {
+			audioElement[6].play();
+		} else {
+			audioElement[6].pause();
+		}
+		if (gridLayouts[6] != 0){
+			rebuildGrid(gridLayouts[6]);
+		}
+	});
+	$('.play7').click(function() {
+	
+		if (audioElement[7].paused == true) {
+			audioElement[7].play();
+		} else {
+			audioElement[7].pause();
+		}
+		if (gridLayouts[7] != 0){
+			rebuildGrid(gridLayouts[7]);
+		}
+	});
+	$('.play8').click(function() {
+		if (audioElement[8].paused == true) {
+			audioElement[8].play();
+		} else {
+			audioElement[8].pause();
+		}
+		if (gridLayouts[8] != 0){
+			rebuildGrid(gridLayouts[8]);
+		}
+	});
+	}
+	</script>
+
+</body>
+
+</html>
