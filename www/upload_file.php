@@ -36,10 +36,11 @@ if ((($_FILES ["file"] ["type"] == "image/gif") || ($_FILES ["file"] ["type"] ==
     }
   elseif (in_array($extension,$picExts))
 	{
-		echo "Upload: " . $_FILES ["file"] ["name"] . "<br>";
-		echo "Type: " . $_FILES ["file"] ["type"] . "<br>";
-		echo "Size: " . ($_FILES ["file"] ["size"] / 1024) . " kB<br>";
-		echo "Temp file: " . $_FILES ["file"] ["tmp_name"] . "<br>";
+
+//		echo "Upload: " . $_FILES ["file"] ["name"] . "<br>";
+//		echo "Type: " . $_FILES ["file"] ["type"] . "<br>";
+//		echo "Size: " . ($_FILES ["file"] ["size"] / 1024) . " kB<br>";
+//		echo "Temp file: " . $_FILES ["file"] ["tmp_name"] . "<br>";
 		
 		if (file_exists ( "upload/" . $_POST ["name"] )) {
 			echo $_FILES ["file"] ["name"] . " already exists. ";
@@ -48,7 +49,8 @@ if ((($_FILES ["file"] ["type"] == "image/gif") || ($_FILES ["file"] ["type"] ==
 			echo "Stored in: " . "upload/" . $_FILES ["file"] ["name"];
 			$gridNumber = intval ( $_POST ["gridNum"] );
 			$gridPosition = intval ( $_POST ["gridPos"] );
-			$sqlq = "INSERT INTO GRID (PID, Path, Position, GridNumber) VALUES ('0','$_POST[name]','$gridPosition','$gridNumber')";
+			$sqlcheck = "
+			$sqlq = "INSERT INTO GRID (PID, Path, Position, GridNumber, Audio) VALUES ('0','$_POST[name]','$gridPosition','$gridNumber','0')";
 			if (mysqli_query ( $con, $sqlq )) {
 				echo "Added to database";
 				$_SESSION ['redirect_url'] = $_SERVER ['PHP_SELF'];
@@ -60,8 +62,16 @@ if ((($_FILES ["file"] ["type"] == "image/gif") || ($_FILES ["file"] ["type"] ==
 	}
 	else{
 		move_uploaded_file ( $_FILES ["file"] ["tmp_name"], "upload/" . $_POST ["name"] );
-		$_SESSION ['redirect_url'] = $_SERVER ['PHP_SELF'];
-		header ( 'Location: index2.php' );
+		$gridNumber = intval($_POST["gridNum"]);
+		$gridPosition = intval($_POST ["gridPos"]);
+		$sqlq = "INSERT INTO GRID (PID, Path, Position, GridNumber, Audio) VALUES ('0','$_POST[name]','$gridPosition','$gridNumber','1')";
+		if (mysqli_query ( $con, $sqlq )) {
+			echo "Added to database";
+			$_SESSION ['redirect_url'] = $_SERVER ['PHP_SELF'];
+			header ( 'Location: index2.php' );
+		} else {
+			echo mysqli_error ( $con );
+		}
 	}
 } else {
 	echo "failed";
