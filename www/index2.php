@@ -175,7 +175,7 @@ mysqli_close($con);
 </script>
 
 
-<form action="upload_file.php" method="post"
+<form id="author" action="upload_file.php" method="post"
 enctype="multipart/form-data">
 <label for="file">Filename:</label>
 <input type="file" name="file" id="file"><br>
@@ -191,6 +191,33 @@ enctype="multipart/form-data">
 <input type="radio" name="element" value="photo"><br>
 <input type="submit" name="submit" value="Submit">
 </form>
+
+<script>
+x = document.getElementById("author").style.visibility="hidden";
+</script>
+
+<button type="button" id="autTog" style="position: absolute; left: 10px; top: 10px; " onclick="authorToggle()">Author Tool</button>
+<script>
+function authorToggle()
+{
+b = document.getElementById("autTog");
+if(b.innerHTML =="Author Tool"){
+b.innerHTML = "Close Tool";
+}
+else{
+b.innerHTML = "Author Tool";
+}
+
+x = document.getElementById("author");
+if (x.style.visibility == "visible"){
+x.style.visibility="hidden";
+}
+else{
+x.style.visibility="visible";
+}
+}
+</script>
+
 
 
 

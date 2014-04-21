@@ -52,6 +52,14 @@
 	var audioElement = [];
 	function rebuildGrid(layout) {
 		$(".grid").empty();
+		//var f = new FileReader();
+		//f.readAsText("test.txt");
+		//alert(f);
+	var text = new Array();
+    $.get('test.txt', function(data){
+            text = data.split('\n');
+            console.log(text);
+        });
 		switch (layout) {
 		case 2:
 			var gridPictures = new Array(
