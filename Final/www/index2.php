@@ -249,7 +249,7 @@ mysqli_close($con);
 			audioElement[6].pause();
 		}
 	});
-	$(".play1").mouseover(function(){
+	$(".play1").click(function(){
 		if(audioElements[1].paused == true){
 			audioElements[1].play();
 		}
@@ -373,7 +373,7 @@ $('#update').toggle();
 
 //Brennan's old toggle functions I rewrote in jquery for simplicity ~ Evan
 
-/*
+
 function authorToggle(){
 	b = document.getElementById("autTog");
 	if(b.innerHTML =="Author"){
@@ -415,7 +415,7 @@ function deleteToggle(){
 
 	$('#delete').toggle();
 }
-*/
+
 </script>
 
 
