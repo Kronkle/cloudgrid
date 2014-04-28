@@ -1,0 +1,5 @@
+AddType text/cache-manifest .manifest
+
+<FilesMatch "\.(manifest)$">
+    SetHandler application/x-httpd-php
+</FilesMatch>
