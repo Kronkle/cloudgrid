@@ -173,7 +173,7 @@ mysqli_close($con);
 	//thus we use the index array to make sure that we have them 
 	for(i = 0; i < picArray.length && i < 9; i ++){
 		x = picIndex.shift().toString();
-		$("<div class=col-lg-4 col-md-4 id = playable" + x + "><a href=# class=thumbnail><img class =play" + x + " img-responsive src='\/upload/" + picArray[i] + "\'></a></div>").appendTo(".grid");
+		$("<div class=col-lg-4 col-md-4 id = playable" + x + "><a href=\"javascript:void(0)\" class=thumbnail><img class =play" + x + " img-responsive src='\/upload/" + picArray[i] + "\'></a></div>").appendTo(".grid");
 		$("#playable"+x).append("<p class=\"player" + x + "\" >" + textArray[i] + "</p>");
 	}
 	for(i = 0; i < audioArray.length && i < 9; i ++){
@@ -254,7 +254,7 @@ mysqli_close($con);
 			audioElements[1].play();
 		}
 		else{
-			audioElement[1].pause();
+			audioElements[1].pause();
 		}
 	});
 	$(".play8").click(function(){
@@ -296,15 +296,15 @@ mysqli_close($con);
 		$(".player8").toggle();
 	});
 	//pretoggle descriptions so they don't show up by default ~Evan
-	$(".player0").toggle();
-	$(".player2").toggle();
-	$(".player3").toggle();
-	$(".player4").toggle();
-	$(".player5").toggle();
-	$(".player6").toggle();
-	$(".player7").toggle();
-	$(".player8").toggle();
-	$(".player1").toggle();
+//	$(".player0").toggle();
+//	$(".player2").toggle();
+//	$(".player3").toggle();
+//	$(".player4").toggle();
+//	$(".player5").toggle();
+//	$(".player6").toggle();
+//	$(".player7").toggle();
+//	$(".player8").toggle();
+//	$(".player1").toggle();
 	
 
 </script>

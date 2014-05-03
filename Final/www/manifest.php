@@ -4,7 +4,7 @@
 $folders = array('bootstrap-3.1.0-dist', 'upload', 'css');
 $files = array('index2.php');
 
-// recursive function
+// recursively grab files
 function append_filelist(&$files, $folder) {
   if ($dh = opendir($folder)) {
     while (($file = readdir($dh)) !== false) {
@@ -13,25 +13,24 @@ function append_filelist(&$files, $folder) {
         if (is_dir($folder."/".$file))
           append_filelist($files, $folder."/".$file);
         else
-          //$files[] = $folder."/".$file."?hash=".md5_file($folder."/".$file);
           $files[] = $folder."/".$file;
-      } // if
-    } // while
-  } // if
+      }
+    }
+  } 
 }
 
-// init
+
 foreach ($folders as $folder)
   if (is_dir($folder))
     append_filelist($files, $folder);
 
-// generate output
+// generate the data for the cache manifest file
 $body = "CACHE MANIFEST\n\nCACHE:\n";
 foreach ($files as $file)
   $body .= $file."\n";
 $body .= "\nNETWORK:\n*\n";
 
-// render output (the 'Content-length' header avoids the automatic creation of a 'Transfer-Encoding: chunked' header)
+// echo data to create file
 header('Content-type: text/cache-manifest');
 header('Content-length: '.strlen($body));
 echo $body;

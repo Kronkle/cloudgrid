@@ -1,4 +1,6 @@
 <?php
+
+//for redirection purposes
 session_start ();
 
 $selected_radio = $_POST['element'];
@@ -35,6 +37,8 @@ else{
 $text = $_POST["word"];
 $temp = explode ( ".", $_FILES ["file"] ["name"] );
 $extension = end ( $temp );
+
+//check extension upload and update database accordingly checks to make sure we add audio = 1 to audio and 0 to photos
 if ((($_FILES ["file"] ["type"] == "image/gif") || ($_FILES ["file"] ["type"] == "image/jpeg") || ($_FILES ["file"] ["type"] == "image/jpg") || ($_FILES ["file"] ["type"] == "image/pjpeg") || ($_FILES ["file"] ["type"] == "image/x-png") || ($_FILES ["file"] ["type"] == "image/png") || ($_FILES ["file"] ["type"] == "audio/mpeg3") || ($_FILES ["file"] ["type"] == "audio/ogg") || ($_FILES ["file"] ["type"] == "audio/x-mpeg-3") || ($_FILES ["file"] ["type"] == "audio/mpeg") || ($_FILES ["file"] ["type"] == "video/mpeg") || ($_FILES ["file"] ["type"] == "video/x-mpeg") || ($_FILES ["file"] ["type"] == "audio/mp3") || ($_FILES ["file"] ["type"] == "audio/x-mp3") || ($_FILES ["file"] ["type"] == "audio/x-mpeg3") || ($_FILES ["file"] ["type"] == "audio/mpg") || ($_FILES ["file"] ["type"] == "audio/x-mpg") || ($_FILES ["file"] ["type"] == "auido/x-mpegaudio")) && in_array ( $extension, $allowedExts )) {
 	if ($_FILES ["file"] ["error"] > 0)
 		{
@@ -49,7 +53,7 @@ if ((($_FILES ["file"] ["type"] == "image/gif") || ($_FILES ["file"] ["type"] ==
 //		echo "Temp file: " . $_FILES ["file"] ["tmp_name"] . "<br>";
 		
 		if (file_exists ( "upload/" . $_POST ["name"] )) {
-			echo $_FILES ["file"] ["name"] . " already exists. ";
+			echo $_POST["name"] . " already exists. ";
 		} else {
 			move_uploaded_file ( $_FILES ["file"] ["tmp_name"], "upload/" . $_POST ["name"] );
 			echo "Stored in: " . "upload/" . $_FILES ["file"] ["name"];

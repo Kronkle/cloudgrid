@@ -1,0 +1,52 @@
+Design Document
+
+code is at https://github.com/Kronkle/cloudgrid
+
+Site Setup instructions:
+
+Download and install winamp with php 5.4
+Go to the Final folder on github
+Copy the files into the wamp folder on your machine overwriting the premade www folder
+Start your server and go to localhost/index2.php to get started.
+Use the author tool to upload a photo or audio file to a specific grid element 0-8 and a specific grid 1-10
+(Probably wasn't my brightest idea to do the grid in normal people numbers and the element index in comp sci numbers)
+Pics get a description, the description is ignored on audio. 
+Desciption shows up as text below the photo
+Update can update the audio file or the picture at a specific element.
+Delete deletes either the audio and the image at the element specified.
+The site gets cached as soon as it is visited so it is best to do testing in private browsing or else your changes want be reflected
+until you clear the cache or modify the url forcing it to repull the cache manifest and recache the site. The problem with this is 
+it will cache the same page with the new url so you will be forced to use a new url again which will very quickly eat up memory.
+If something messes up you can go to php my admin and drop the table and start over, or if you just want to start from scratch again as
+deleting every entry is a pain at the moment.
+
+Functional Spec Guide to Maintaining Code:
+
+The meat of the code is in index2.php this is the home page and does a lot of the grunt work.
+The page first checks to see if the database exists and if it doesn't it creates.
+The database is pretty self explanatory path is the path to the file etc.
+Audio is an int functioning as a boolean 1 means audio 0 is photo.
+The unique constraint is added so we don't have two pictures or two sounds linked to the same file.
+$sql = "CREATE TABLE GRID (PID INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(PID), Path CHAR(30), Position INT, GridNumber INT, Audio INT, Description CHAR(30))";
+	if(mysqli_query($con,$sql)){
+		echo "Table Grid created successfully";
+		if(mysqli_query($con,"ALTER TABLE GRID ADD CONSTRAINT tb_UQ UNIQUE (Position, GridNumber, Audio)")){
+			echo "Alteration of table Grid successful";
+When the page is asked for a query is made to the database to get the elements for the grid.
+This response is parsed into different arrays for audio, images, and descriptions using json so that we can read the result in javascript.
+The javascript then goes through the elements of the arrays and creates div's with the images and descriptions that the database contained
+Then it goes through the audio array and links audio the correct premade elements. I had troubled creating the audio elements dynamically
+so I just decided to hard code nine elements and just link the audio to those premade elements. Because of this I have also hardcoded play functions
+for each of them. I also made the text disappear on mouseover which may be a bad idea of we think of this as being an accessible website.
+Very easy to disable though. At the bottom of the index2.php are html forms linking to the appropriate php files for updating the database based on the
+users desire. The top of the code is just twitter bootsrap formating I found on the bootstrap website to make the site look more presentable.
+The manifest.php in the header links to a file that creates the cache manifest so that we can save the grid for offline usuage. This file goes
+through the active directory and lists files that the browser needs to cache. This is done as a php file so that we don't actually know at the start
+the names of all the files the user will have uploaded thus this allows us to update the cache dynamically based on what is in the directory,
+unfortunately this isn't working quite as intended since the manifest file is not getting update until the url is changed from index2.php?q=1 to something
+like index2.php?q=1&t=1 were t is some arbitrary variable. Upload_file.php, and delete_file.php, and update_file.php are self explanatory.
+Upload and update do use explode to check file extensions so we know whether or not it is a photo or an audio file. The .htaacess file allows
+the manifest to be a php file.  
+
+
+
